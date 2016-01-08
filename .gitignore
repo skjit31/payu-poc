@@ -31,3 +31,10 @@
 
 # "temporary" build files
 /target
+/test
+/lib
+.classpath
+/.idea
+.project
+*.iml
+/wrapper

@@ -198,7 +198,14 @@
             <td> Promotions:</td>
             <td> <select name="promo_code" id="promo_code"> <option value="">All Promotions &amp; Offers</option> </select> </td>
         </tr>
-
+        %{--iframe code start--}%
+        %{--<tr>
+            <td>Integration Type:</td>
+            <td><select name="integration_type">
+                <option value="iframe_normal">iframe_normal</option>
+            </select></td>
+        </tr>--}%
+        %{--iframe code end--}%
         <tr>
             <td></td><td><INPUT TYPE="submit" value="CheckOut"></td>
         </tr>

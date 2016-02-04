@@ -1,6 +1,10 @@
 package ccavenue.poc
 
 import com.ccavenue.security.AesCryptUtil
+import grails.converters.JSON
+import groovyx.net.http.ContentType
+import groovyx.net.http.Method
+
 
 class DemoController {
 
@@ -118,4 +122,12 @@ class DemoController {
         }
         render(view: 'ccavResponseHandler', model: [paramList: paramList])
     }
+
+    def ccavenuejson(){
+        Map map =  demoService.CCAvenueConfig
+        String url = "https://secure.ccavenue.com/transaction/transaction.do?command=getJsonData&access_code=${map.accessCode}&currency=INR&amount=${500}"
+        List list = demoService.makeUrlConnectionCall(url)
+        render (["abc":list] as JSON)
+    }
+
 }

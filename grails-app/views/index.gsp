@@ -5,8 +5,8 @@
 		<title>Welcome to Grails</title>
 	</head>
 	<body>
-    <g:link controller="demo" action="iframe"> IFrame</g:link>
-    <g:link controller="demo" action="nonSeamless"> Non Seamless</g:link>
-    <g:link controller="demo" action="customCheckoutForm"> Custom Checkout</g:link>
+    <g:link controller="demo" action="iframe"> IFrame</g:link> <br/>
+    <g:link controller="demo" action="nonSeamless"> Non Seamless</g:link> <br/>
+    <g:link controller="demo" action="customCheckoutForm"> Custom Checkout</g:link> <br/>
 	</body>
 </html>

@@ -141,7 +141,7 @@ ccavenue{
 payu{
     key = "KEY"
     salt = "SALT"
-    productinfo = "product"
+    productInfo = "product"
     url = "https://test.payu.in/_payment"
     apiUrl = "https://test.payu.in/merchant/postservice.php?form=2"
 }

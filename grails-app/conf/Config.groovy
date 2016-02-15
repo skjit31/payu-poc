@@ -1,3 +1,5 @@
+import org.apache.log4j.DailyRollingFileAppender
+
 // locations to search for config files that get merged into the main config;
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
@@ -101,9 +103,15 @@ environments {
 log4j.main = {
     // Example of changing the log pattern for the default console appender:
     //
-    //appenders {
-    //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
-    //}
+    appenders {
+        console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
+        appender new DailyRollingFileAppender(
+                name: 'payuLogger',
+                datePattern: "'_'dd-MM-yyyy",
+                fileName: "${userHome}/project/ccavenue-poc/payulogger.log",  //storage path of log file
+                layout: pattern(conversionPattern: '%d [%t] %-5p %X{authToken} %c{2} %x - %m%n')
+        )
+    }
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP
@@ -116,6 +124,11 @@ log4j.main = {
            'org.springframework',
            'org.hibernate',
            'net.sf.ehcache.hibernate'
+
+    debug   'util'
+    all     'grails.app'
+    all payuLogger: ['grails.app.controllers.ccavenue.poc.PayuController', 'grails.app.services.ccavenue.poc.PayuService']
+
 }
 
 ccavenue{
@@ -124,3 +137,14 @@ ccavenue{
     workingKey = "WORKINGKEY" //eg: C14645DFG54D56DF4G6DG4DGDFGD6FG4D
     url="URL" //eg: https://test.ccavenue.com/transaction/transaction.do?command=initiateTransaction
 }
+
+payu{
+    key = "KEY"
+    salt = "SALT"
+    productinfo = "product"
+    url = "https://test.payu.in/_payment"
+    apiUrl = "https://test.payu.in/merchant/postservice.php?form=2"
+}
+
+grails.converters.default.pretty.print = true
+grails.project.groupId = 'com.pg'

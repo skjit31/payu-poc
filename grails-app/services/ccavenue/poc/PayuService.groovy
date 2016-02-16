@@ -1,18 +1,15 @@
 package ccavenue.poc
 
 import com.pg.Transaction
-import grails.converters.JSON
 import grails.transaction.Transactional
 import groovy.json.JsonSlurper
 import org.codehaus.groovy.grails.web.json.JSONException
-import org.codehaus.groovy.grails.web.json.JSONObject
 import org.codehaus.groovy.grails.web.servlet.mvc.GrailsParameterMap
-import util.ConfigHelper
+import com.pg.util.ConfigHelper
 import util.Encryption
-import util.RestApiUtil
-import util.SHA512Encryption
+import com.pg.util.RestApiUtil
+import com.pg.util.SHA512Encryption
 import groovyx.net.http.ContentType
-import groovyx.net.http.HTTPBuilder
 import groovyx.net.http.Method
 
 @Transactional

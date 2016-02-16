@@ -1,4 +1,4 @@
-package util
+package com.pg.util
 
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException

@@ -1,19 +1,13 @@
 package ccavenue.poc
 
-import com.pg.Transaction
-import com.sun.security.auth.module.Crypt
 import grails.converters.JSON
-import util.ConfigHelper
-import util.SHA512Encryption
 
 class PayuController {
 
-    def grailsLinkGenerator
     def payuService
 
     def seamless() {
         payuService.nonSeamlessRequest()
-
     }
 
     def nonSeamless() {

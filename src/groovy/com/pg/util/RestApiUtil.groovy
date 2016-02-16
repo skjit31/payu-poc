@@ -1,8 +1,7 @@
-package util
+package com.pg.util
 
-import grails.converters.JSON
+import com.pg.util.ConfigHelper
 import groovy.util.logging.Log4j
-import groovy.util.slurpersupport.GPathResult
 import groovyx.net.http.ContentType
 import groovyx.net.http.HTTPBuilder
 import groovyx.net.http.Method

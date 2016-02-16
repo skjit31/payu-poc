@@ -1,3 +1,4 @@
+<%@ page import="com.pg.enums.PGType" %>
 <html>
 <head>
     <title>Payu | Seamless Request</title>
@@ -73,6 +74,39 @@
             <td><input type="text" name="email" value="${email}"/>
             </td>
         </tr>
+        <tr>
+            <td colspan="2">
+                Seamless Parameters
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Payment Gateway Type
+            </td>
+            <td>
+                <g:select name="pg" from="${com.pg.enums.PGType.values()}"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Drop Category
+            </td>
+            <td>
+                <g:select name="drop_category" noSelection="['':'select']" from="${com.pg.enums.PGType.values()}"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Bank
+            </td>
+            <td>
+                <g:textField name="bankcode" value="ICIB"/>
+            </td>
+        </tr>
+
         <tr>
             <td colspan="2"><input type="submit" value="submit">
             </td>

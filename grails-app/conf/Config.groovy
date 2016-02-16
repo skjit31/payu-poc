@@ -108,7 +108,7 @@ log4j.main = {
         appender new DailyRollingFileAppender(
                 name: 'payuLogger',
                 datePattern: "'_'dd-MM-yyyy",
-                fileName: "${userHome}/project/ccavenue-poc/payulogger.log",  //storage path of log file
+                fileName: "${userHome}/project/ccavenue-poc/logs/payulogger.log",  //storage path of log file
                 layout: pattern(conversionPattern: '%d [%t] %-5p %X{authToken} %c{2} %x - %m%n')
         )
     }
@@ -143,7 +143,9 @@ payu{
     salt = "SALT"
     productInfo = "product"
     url = "https://test.payu.in/_payment"
+//    url = "https://secure.payu.in/_payment"
     apiUrl = "https://test.payu.in/merchant/postservice.php?form=2"
+//    apiUrl = "https://info.payu.in/merchant/postservice.php?form=2"
 }
 
 grails.converters.default.pretty.print = true

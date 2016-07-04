@@ -119,13 +119,13 @@ class PayuService {
         String key, txnid, amount, productinfo, firstname, email, salt, surl, furl, curl,mobileNumber
         key = ConfigHelper.payuKey
         salt = ConfigHelper.payuSalt
-        amount = "10"
+        amount = "100"
         productinfo = ConfigHelper.payuProductInfo
-        firstname = "tushar"
-        email = "tushar.saxena@tothenew.com"
-        mobileNumber="9999999999"
+        firstname = "sanjeev"
+        email = "sanjeev.jha@tothenew.com"
+        mobileNumber="8802668433"
         Transaction transaction = Transaction.last()
-        txnid = "POCS${transaction.id}"
+        txnid = "TNX00001"
 
 //format key|txnid|amount|productinfo|firstname|email|udf1|udf2|udf3|udf4|udf5||||||SALT
         surl = grailsLinkGenerator.link(controller: 'payu', action: 'success',absolute: true)

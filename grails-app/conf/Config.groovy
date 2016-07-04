@@ -139,9 +139,17 @@ ccavenue{
 }
 
 payu{
-    key = "KEY"
+    /*key = "KEY"
     salt = "SALT"
     productInfo = "product"
+    url = "https://test.payu.in/_payment"
+//    url = "https://secure.payu.in/_payment"
+    apiUrl = "https://test.payu.in/merchant/postservice.php?form=2"
+//    apiUrl = "https://info.payu.in/merchant/postservice.php?form=2"*/
+
+    key = "gtKFFx"
+    salt = "eCwWELxi"
+    productInfo = "diamonds"
     url = "https://test.payu.in/_payment"
 //    url = "https://secure.payu.in/_payment"
     apiUrl = "https://test.payu.in/merchant/postservice.php?form=2"

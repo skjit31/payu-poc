@@ -1,6 +1,7 @@
+
 package ccavenue.poc
 
-import com.ccavenue.security.AesCryptUtil
+//import com.ccavenue.security.AesCryptUtil
 import grails.converters.JSON
 import groovyx.net.http.ContentType
 import groovyx.net.http.Method
@@ -8,7 +9,7 @@ import groovyx.net.http.Method
 
 class DemoController {
 
-    def demoService
+   /* def demoService
 
     def iframe() {
         Map map =  demoService.CCAvenueConfig
@@ -128,6 +129,6 @@ class DemoController {
         String url = "https://secure.ccavenue.com/transaction/transaction.do?command=getJsonData&access_code=${map.accessCode}&currency=INR&amount=${500}"
         List list = demoService.makeUrlConnectionCall(url)
         render (["abc":list] as JSON)
-    }
+    }*/
 
 }

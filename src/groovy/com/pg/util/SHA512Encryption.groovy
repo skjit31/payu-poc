@@ -6,6 +6,8 @@ import java.security.NoSuchAlgorithmException
 class SHA512Encryption {
     public static String encryptTextInSHA512(String requestString)
     {
+
+        println(">>>>>>>>>>>>>>>>>")
         String hash = null;
         try {
 

@@ -21,13 +21,13 @@ class PayuService {
 
         log.info("params : ${params}")
         String text = "eCwWELxi|${params.status}||||||${params.ud5 ?: ''}|${params.ud4 ?: ''}|${params.ud3 ?: ''}|${params.ud2 ?: ''}|" +
-                "${params.ud1 ?: ''}|${params.email}|${params.firstname}|${params.productinfo}" +
+                "${params.udf1}|${params.email}|${params.firstname}|${params.productinfo}" +
                 "|${params.amount}|${params.txnid}|${params.key}"
         println ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>${text}"
         String hash = SHA512Encryption.encryptTextInSHA512(text)
         println ">>>>>>>>>>>>>>>>>>>>>>>hash1>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>${hash}"
         println ">>>>>>>>>>>>>>>>>>>>>>>hash2>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>${params.hash}"
-        if (hash == params.hash) {
+        if (hash.equals(params.hash) ) {
             println ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>success"
         } else {
             println ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Hash is not matched."
@@ -119,24 +119,26 @@ class PayuService {
         String key, txnid, amount, productinfo, firstname, email, salt, surl, furl, curl,mobileNumber
         key = ConfigHelper.payuKey
         salt = ConfigHelper.payuSalt
-        amount = "100"
-        productinfo = ConfigHelper.payuProductInfo
-        firstname = "sanjeev"
-        email = "sanjeev.jha@tothenew.com"
-        mobileNumber="8802668433"
+        amount = "60.0"
+        productinfo = "60 coin";//ConfigHelper.payuProductInfo
+        firstname = "bharat100"
+        email = "bharat.ghimire100@tothenew.com"
+//        mobileNumber="8802668433"
         Transaction transaction = Transaction.last()
-        txnid = "TNX00001"
+//        txnid = "TRAN0001881"
+        txnid = "TRAN00"+transaction.getId()
 
 //format key|txnid|amount|productinfo|firstname|email|udf1|udf2|udf3|udf4|udf5||||||SALT
         surl = grailsLinkGenerator.link(controller: 'payu', action: 'success',absolute: true)
         furl = grailsLinkGenerator.link(controller: 'payu', action: 'failure',absolute: true)
         curl = grailsLinkGenerator.link(controller: 'payu', action: 'cancel',absolute: true)
-        String paramSequence = "${key}|${txnid}|${amount}|${productinfo}|${firstname}|${email}|||||||||||${salt}"
+        String paramSequence = "${key}|${txnid}|${amount}|${productinfo}|${firstname}|${email}|22||||||||||${salt}"
         String hash1 = SHA512Encryption.encryptTextInSHA512(paramSequence)
         println ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>${hash1}"
+        println ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>${paramSequence}"
         transaction = new Transaction(id: 1, status: "dsf").save(failOnError: true, flush: true)
         log.info("logging request")
-        [firstname: firstname, key: key, hash: hash1, txnid: txnid, amount: amount, email: email,
-         productInfo: productinfo,surl:surl,furl:furl,curl:curl,mobileNumber:mobileNumber,url:ConfigHelper.payuUrl]
+        [udf1:22,firstname: firstname, key: key, hash: hash1, txnid: txnid, amount: amount, email: email,
+         productInfo: productinfo,surl:surl,furl:furl,curl:curl,url:ConfigHelper.payuUrl]
     }
 }

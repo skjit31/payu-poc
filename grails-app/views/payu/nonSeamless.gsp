@@ -18,14 +18,14 @@
             <td><input type="text" name="surl" value="${surl}"/>
             </td>
         </tr>
-        <tr>
+%{--        <tr>
             <td>
                 Mobile Number
             </td>
             <td>
                 <input type="text" name="phone" value="${mobileNumber}"/>
             </td>
-        </tr>
+        </tr>--}%
         <tr>
             <td>
                 Key
@@ -71,6 +71,11 @@
         <tr>
             <td>Email</td>
             <td><input type="text" name="email" value="${email}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>udf1</td>
+            <td><input type="text" name="udf1" value="${udf1}"/>
             </td>
         </tr>
         <tr>

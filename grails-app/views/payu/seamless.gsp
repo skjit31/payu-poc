@@ -75,6 +75,11 @@
             </td>
         </tr>
         <tr>
+            <td>productId</td>
+            <td><input type="text" name="udf1" value="${udf1}"/>
+            </td>
+        </tr>
+        <tr>
             <td colspan="2">
                 Seamless Parameters
             </td>
